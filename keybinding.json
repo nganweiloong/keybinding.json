@@ -1,0 +1,384 @@
+// // Mine!
+// [
+//   {
+//     "key": "ctrl+shift+alt+enter",
+//     "command": "github.copilot.generate",
+//     "when": "editorTextFocus && github.copilot.activated"
+//   },
+//   {
+//     "key": "ctrl+enter",
+//     "command": "-github.copilot.generate",
+//     "when": "editorTextFocus && github.copilot.activated"
+//   },
+//   {
+//     "key": "alt+k",
+//     "command": "-keybindings.editor.recordSearchKeys",
+//     "when": "inKeybindings && inKeybindingsSearch"
+//   },
+//   {
+//     "key": "alt+k",
+//     "command": "cursorDown",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "down",
+//     "command": "-cursorDown",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "alt+j",
+//     "command": "cursorLeft",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "left",
+//     "command": "-cursorLeft",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "alt+l",
+//     "command": "cursorRight",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "right",
+//     "command": "-cursorRight",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "alt+i",
+//     "command": "cursorUp",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "up",
+//     "command": "-cursorUp",
+//     "when": "textInputFocus"
+//   },
+//   {
+//     "key": "alt+k",
+//     "command": "selectNextSuggestion",
+//     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+//   },
+//   {
+//     "key": "down",
+//     "command": "-selectNextSuggestion",
+//     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+//   },
+//   {
+//     "key": "alt+i",
+//     "command": "selectPrevSuggestion",
+//     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+//   },
+//   {
+//     "key": "up",
+//     "command": "-selectPrevSuggestion",
+//     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+//   }
+// ]
+
+// vscode-keybindings for navigation with I/J/K/L and additional functionality with surrounding characters
+
+// Place your key bindings in this file to overwrite the defaults
+// ALT + I/J/K/L: up/left/down/right
+// ALT + SHIFT + I/J/K/L: mark text up/left/down/right
+// CTRL + J/L: send cursor to start/end of line
+// CTRL + ALT + J/L: send cursor to start/end of word
+// CTRL + ALT + U/O: send cursor to "wordPartLeft"/"wordPartRight"
+// CTRL + ALT +  SHIFT + U/O: mark from cursor to "wordPartLeft"/"wordPartRight"
+// CTRL + ALT + Y: got to declaration
+// CTRL + I/K: add/remove another cursor up/down
+// -- IF LINEJUMPER IS INSTALLED -- //
+// CTRL + ALT + I/K: move cursor 10 lines up/down
+// CTRL + ALT + SHIFT + I/K: mark 10 lines up/down
+
+[
+  {
+    "key": "ctrl+shift+i",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "cursorDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+i",
+    "command": "cursorUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "cursorRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "cursorLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+k",
+    "command": "cursorDownSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+i",
+    "command": "cursorUpSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+l",
+    "command": "cursorRightSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+j",
+    "command": "cursorLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+ctrl+l",
+    "command": "cursorWordEndRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+ctrl+j",
+    "command": "cursorWordStartLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+ctrl+l",
+    "command": "cursorWordRightSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+ctrl+j",
+    "command": "cursorWordLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+o",
+    "command": "cursorEndSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+u",
+    "command": "cursorHomeSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "cursorEnd",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "cursorHome",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+y",
+    "command": "editor.action.goToDeclaration"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "cursorMove",
+    "args": {
+      "to": "up",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
+  },
+
+  {
+    "key": "alt+shift+ctrl+o",
+    "command": "cursorWordPartRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+shift+ctrl+u",
+    "command": "cursorWordPartLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+ctrl+o",
+    "command": "cursorWordPartRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+ctrl+u",
+    "command": "cursorWordPartLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "line",
+      "value": 5
+    },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "cursorMove",
+    "args": {
+      "to": "up",
+      "by": "line",
+      "value": 5
+    },
+    "when": "editorTextFocus"
+  },
+
+  {
+    "key": "alt+shift+ctrl+k",
+    "command": "lineJumper.selectDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+ctrl+i",
+    "command": "lineJumper.selectUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+i",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "up",
+    "command": "-selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "down",
+    "command": "-selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+shift+alt+enter",
+    "command": "github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated"
+  },
+  {
+    "key": "ctrl+shift+alt+c",
+    "command": "github.copilot.toggleCopilot"
+  },
+  {
+    "key": "shift+backspace",
+    "command": "-deleteLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+backspace",
+    "command": "deleteRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "delete",
+    "command": "-deleteRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+m",
+    "command": "editor.debug.action.showDebugHover",
+    "when": "editorTextFocus && inDebugMode"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-editor.debug.action.showDebugHover",
+    "when": "editorTextFocus && inDebugMode"
+  },
+  {
+    "key": "alt+m",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+m",
+    "command": "workbench.action.showTreeHover",
+    "when": "customTreeView && listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-workbench.action.showTreeHover",
+    "when": "customTreeView && listFocus && !inputFocus"
+  },
+  {
+    "key": "alt+d",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "capslock i",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+up",
+    "command": "-editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "capslock k",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+m",
+    "command":"editor.action.goToDeclaration",
+    "when": "editorTextFocus && !editorReadonly"
+  }  
+]
